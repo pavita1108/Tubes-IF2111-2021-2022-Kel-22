@@ -6,10 +6,11 @@
 
 #include "boolean.h"
 
-#define MARK '.'
+#define MARK '\n'
 /* State Mesin */
 extern char CC;
 extern boolean EOP;
+extern boolean MBR;
 
 void START();
 /* Mesin siap dioperasikan. Pita disiapkan untuk dibaca.
