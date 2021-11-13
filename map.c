@@ -28,6 +28,10 @@ void readConfig (int *N, char *map, int *MaxRoll, int *Nteleporter, TabInt *tele
 		ADVKATA();
 		(*teleporter).TI[i*2] = atoi(CKata.TabKata);
 	}
+	// itu yang teleporter kalo yang ganjil itu letak teleporter kalo yang genap petak keluar teleporter
+	//contoh : 3 5 2 9
+	//kalo kena petak 3 maka bakal keluar di 5
+	//kalo kena petak 2 maka bakal keluar di 9
 	
 };
 
