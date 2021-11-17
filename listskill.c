@@ -27,6 +27,20 @@ int RandomizeSkill (){
     return result;
 }
 
+void DelSkill (List *L, int i){
+    if (i != 0 ){
+        if (i < 0){
+            int DelNum;
+            i = abs(i);
+            DelPList(L, i);
+            printf("Membuang skill");
+        }
+        else{
+            printf("Menggunakan skill");
+        }
+    }
+}
+
 void AddSkill (List *L, int hasil){
 	int skill;
 	if (hasil == 0){
@@ -55,13 +69,12 @@ void AddSkill (List *L, int hasil){
         printf("Maaf Anda mendapatkan Teknologi Gagal\n");
 	}
 
-	if (skill != 0 && NbElmt(L) <= 10){
-		InsVLastList(L, skill);
-		printf("Skill ");
-		printf("%d", NbElmt(L));
-		printf(" berhasil dimasukkan\n");
+	if (skill != 0 && NbElmt(L) < 11){
+		InsVLastList(L, NbElmt(L));
+		printf("Skill berhasil dimasukkan\n");
 	}
-	else if (NbElmt(L) > 10){
+
+	else if (NbElmt(L) >= 11){
 		printf("Jumlah skill yang dimiliki sudah 10\n");
 	}
 }

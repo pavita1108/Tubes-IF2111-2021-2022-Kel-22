@@ -13,6 +13,8 @@ int NbElmt (List *L);
 int RandomizeSkill ();
 /* Menghasilkan angka yang akan dipakai di procedure AddSkill */
 
+void DelSkill (List *L, int i);
+
 void AddSkill (List *L, int hasil);
 /* Mengeluarkan nama skill dengan menggunakan angka dari fungsi RandomizeSkill
 dan memasukkannya ke list skill jika banyak elemen di list skill masih kurang atau sama dengan 10 */
