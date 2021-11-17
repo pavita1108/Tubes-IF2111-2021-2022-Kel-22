@@ -19,8 +19,7 @@ int NbElmt (List *L){
 
 int RandomizeSkill (){
 	int result, skill, x, i;
-	time_t t;
-	srand((unsigned) (time(&t)));
+	srand((unsigned) (time(0)));
     for(i = 1; i < 10; i++){
         x = rand() % 10;
     }
@@ -86,13 +85,13 @@ void AddSkill (List *L, int hasil){
         printf("Maaf Anda mendapatkan Teknologi Gagal\n");
 	}
 
-	if (skill != 5 && NbElmt(L) <= 10){
+	if (skill != 5 && NbElmt(L) < 10){
 		InsVLastList(L, skill);
 		printf("Skill ");
 		printf("%d", skill);
 		printf(" berhasil dimasukkan\n");
 	}
-	else if (NbElmt(L) > 10){
+	else if (NbElmt(L) >= 10){
 		printf("Jumlah skill yang dimiliki sudah 10\n");
 	}
 }
