@@ -18,10 +18,12 @@ int NbElmt (List *L){
 }
 
 int RandomizeSkill (){
-	int result, skill, x;
+	int result, skill, x, i;
 	time_t t;
-	srand((unsigned) (time(0)));
-    x = rand() % 10;
+	srand((unsigned) (time(&t)));
+    for(i = 1; i < 10; i++){
+        x = rand() % 10;
+    }
     result = (result + x) % 10;
     return result;
 }
