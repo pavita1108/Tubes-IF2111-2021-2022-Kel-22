@@ -9,7 +9,7 @@ int NbElmt (List *L){
 	address P;
 	P = First(*L);
 	int count;
-	count = 0;
+	count = 1;
 	while (P != Nil){
 		count ++;
 		P = Next(P);
@@ -27,71 +27,41 @@ int RandomizeSkill (){
     return result;
 }
 
-void DelI (List *L, int i){
-	address P;
-	int j = 0;
-	P = First(*L);
-	if (i == 0){
-		DelFirstList(L, &P);
-	}
-	else if (i == NbElmt(L)){
-		DelLastList(L, &(Last(*L)));
-	}
-	else{
-		while (j < i){
-			j ++;
-			P = Next(P);
-		}
-		P = Prev(P);
-		DelAfterList(L, &P, Prev(P));
-	}
-}
-
-void DelSkill (List *L, int i){
-	if (IsEmptyList(*L)){
-		printf("Anda tidak mempunyai skill\n");
-	}
-	else{
-		i = abs(i);
-		DelI(L, i);
-	}
-}
-
 void AddSkill (List *L, int hasil){
 	int skill;
 	if (hasil == 0){
-		skill = 0;
-		printf("Pintu Ga Ke Mana-Mana\n");
+		skill = 1;
+		printf("%d. Pintu Ga Ke Mana-Mana\n", NbElmt(L));
 	}
 	else if(hasil == 1){
-		skill = 1;
-		printf("Cermin Pengganda\n");
+		skill = 2;
+		printf("%d. Cermin Pengganda\n", NbElmt(L));
 	}
 	else if(hasil == 2 || hasil == 3){
-		skill = 2;
-		printf("Senter Pembesar Hoki\n");
+		skill = 3;
+		printf("%d. Senter Pembesar Hoki\n", NbElmt(L));
 	}
 	else if(hasil == 4 || hasil == 5){
-		skill = 3;
-		printf("Senter Pengecil Hoki\n");
+		skill = 4;
+		printf("%d. Senter Pengecil Hoki\n", NbElmt(L));
 	}
 	else if(hasil == 6){
-		skill = 4;
-		printf("Mesin Penukar Hoki\n");
+		skill = 5;
+		printf("%d. Mesin Penukar Hoki\n", NbElmt(L));
 	}
 	else if(hasil >= 7 && hasil <= 9){
-		skill = 5;
+		skill = 0;
 		printf("Teknologi Gagal\n");
         printf("Maaf Anda mendapatkan Teknologi Gagal\n");
 	}
 
-	if (skill != 5 && NbElmt(L) < 10){
+	if (skill != 0 && NbElmt(L) <= 10){
 		InsVLastList(L, skill);
 		printf("Skill ");
-		printf("%d", skill);
+		printf("%d", NbElmt(L));
 		printf(" berhasil dimasukkan\n");
 	}
-	else if (NbElmt(L) >= 10){
+	else if (NbElmt(L) > 10){
 		printf("Jumlah skill yang dimiliki sudah 10\n");
 	}
 }

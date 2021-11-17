@@ -8,13 +8,13 @@
 #include <time.h>
 
 int NbElmt (List *L);
+/* Menghitung penjang list */
 
 int RandomizeSkill ();
-
-void DelI (List *L, int i);
-
-void DelSkill (List *L, int i);
+/* Menghasilkan angka yang akan dipakai di procedure AddSkill */
 
 void AddSkill (List *L, int hasil);
+/* Mengeluarkan nama skill dengan menggunakan angka dari fungsi RandomizeSkill
+dan memasukkannya ke list skill jika banyak elemen di list skill masih kurang atau sama dengan 10 */
 
 #endif
