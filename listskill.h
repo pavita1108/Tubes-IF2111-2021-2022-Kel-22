@@ -9,7 +9,7 @@
 
 int NbElmt (List *L);
 
-int RandomizeSkill (int x);
+int RandomizeSkill ();
 
 void DelI (List *L, int i);
 

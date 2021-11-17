@@ -17,13 +17,11 @@ int NbElmt (List *L){
 	return count;
 }
 
-int RandomizeSkill (int x){
-	int result, skill,i;
+int RandomizeSkill (){
+	int result, skill, x;
 	time_t t;
-	srand((unsigned) (time(&t)));
-    for(i = 1; i < 10; i++){
-        result = rand() % 10;
-    }
+	srand((unsigned) (time(0)));
+    x = rand() % 10;
     result = (result + x) % 10;
     return result;
 }
