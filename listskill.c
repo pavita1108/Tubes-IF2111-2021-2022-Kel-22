@@ -36,6 +36,7 @@ void DelSkill (List *L, int i){
             printf("Membuang skill");
         }
         else{
+			DelPList(L, i);
             printf("Menggunakan skill");
         }
     }
@@ -45,23 +46,23 @@ void AddSkill (List *L, int hasil){
 	int skill;
 	if (hasil == 0){
 		skill = 1;
-		printf("%d. Pintu Ga Ke Mana-Mana\n", NbElmt(L));
+		printf("1. Pintu Ga Ke Mana-Mana\n");
 	}
 	else if(hasil == 1){
 		skill = 2;
-		printf("%d. Cermin Pengganda\n", NbElmt(L));
+		printf("2. Cermin Pengganda\n");
 	}
 	else if(hasil == 2 || hasil == 3){
 		skill = 3;
-		printf("%d. Senter Pembesar Hoki\n", NbElmt(L));
+		printf("3. Senter Pembesar Hoki\n");
 	}
 	else if(hasil == 4 || hasil == 5){
 		skill = 4;
-		printf("%d. Senter Pengecil Hoki\n", NbElmt(L));
+		printf("4. Senter Pengecil Hoki\n");
 	}
 	else if(hasil == 6){
 		skill = 5;
-		printf("%d. Mesin Penukar Hoki\n", NbElmt(L));
+		printf("5. Mesin Penukar Hoki\n");
 	}
 	else if(hasil >= 7 && hasil <= 9){
 		skill = 0;
@@ -70,8 +71,8 @@ void AddSkill (List *L, int hasil){
 	}
 
 	if (skill != 0 && NbElmt(L) < 11){
-		InsVLastList(L, NbElmt(L));
-		printf("Skill berhasil dimasukkan\n");
+		InsVLastList(L, skill);
+		printf("\nSkill berhasil dimasukkan\n");
 	}
 
 	else if (NbElmt(L) >= 11){
