@@ -79,3 +79,10 @@ void AddSkill (List *L, int hasil){
 		printf("Jumlah skill yang dimiliki sudah 10\n");
 	}
 }
+
+int CurrentSkill (int inputskill){
+/* Menghasilkan skill yang sedang aktif */
+	int CurrSkill;
+	CurrSkill = inputskill;
+	return CurrSkill;
+}

@@ -2,9 +2,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-/*    printf("Kamu memiliki skill:\n");
-    printf("Tekan 0 untuk keluar. Masukkan bilangan negatif untuk membuang skill"); */
-
 int main(){
     int R1, i, inputskill;
     List Skill;
@@ -25,6 +22,9 @@ int main(){
             printf("Masukkan skill: ");
             scanf("%d", &inputskill);  
             DelSkill (&Skill, inputskill);
+            if (inputskill > 0){
+                CurrentSkill(inputskill);
+            } 
         }
     }
 
