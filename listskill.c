@@ -33,11 +33,11 @@ void DelSkill (List *L, int i){
             int DelNum;
             i = abs(i);
             DelPList(L, i);
-            printf("Membuang skill");
+            printf("Membuang skill %d", i);
         }
         else{
 			DelPList(L, i);
-            printf("Menggunakan skill");
+            printf("Menggunakan skill %d", i);
         }
     }
 }
