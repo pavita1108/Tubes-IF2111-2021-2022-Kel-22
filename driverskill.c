@@ -4,8 +4,10 @@
 
 int main(){
     int R1, i, inputskill;
-    List Skill;
-    CreateEmptyList(&Skill);
+    List Skill, Buff;
+    address P;
+    CreateEmptyList(&Skill);//list skill player
+    CreateEmptyList(&Buff);//list buff yg aktif pada seorang player
     
     printf("Skill yang didapatkan pada giliran ini:\n");
     R1 = RandomizeSkill();
@@ -23,8 +25,12 @@ int main(){
             scanf("%d", &inputskill);  
             DelSkill (&Skill, inputskill);
             if (inputskill > 0){
-                CurrentSkill(inputskill);
-            } 
+                P = SearchList(Buff,inputskill);/*buff tidak bisa distak, cek dulu apakah sudah ada*/
+                if (P = Nil){/*buff belum ada, bisa dimasukkan ke listbuff*/
+                    InsVLastList(&Buff, inputskill);//memasukan buff ke dalam list buff
+                }
+                /*jangan lupa saat endturn panggil prosedur DeleteBuff(Buff) untuk membersihkan status buff player*/
+            }
         }
     }
 
