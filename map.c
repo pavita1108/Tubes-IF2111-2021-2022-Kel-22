@@ -13,6 +13,7 @@ void readConfig (int *N, char *map, int *MaxRoll, int *Nteleporter, TabInt *tele
 	
 	ADVKATA();
 	strcpy(map,CKata.TabKata);
+	//input nya harus bentuknya char c[100]
 	
 	ADVKATA();
 	*MaxRoll = atoi(CKata.TabKata);
