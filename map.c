@@ -5,29 +5,32 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+char Map[100];
+int MaxRoll,N;
+TabInt Teleporter;
 
-void readConfig (int *N, char *map, int *MaxRoll,  TabInt *teleporter){
+void readConfig (){
 	int i,Nteleporter;
-	MakeEmptyArray(&(*teleporter));
+	MakeEmptyArray(&(Teleporter));
 	STARTKATA();
-	*N = atoi(CKata.TabKata);
+	N = atoi(CKata.TabKata);
 	
 	ADVKATA();
-	strcpy(map,CKata.TabKata);
+	strcpy(Map,CKata.TabKata);
 	
 	ADVKATA();
-	*MaxRoll = atoi(CKata.TabKata);
+	MaxRoll = atoi(CKata.TabKata);
 	
 	ADVKATA();
 	Nteleporter = atoi(CKata.TabKata);
 	
-	(*teleporter).Neff = (Nteleporter)*2;
+	(Teleporter).Neff = (Nteleporter)*2;
 	for (i = 1 ; i <= Nteleporter ; i++){
 		ADVKATA();
-		(*teleporter).TI[i*2-1] = atoi(CKata.TabKata);
+		(Teleporter).TI[i*2-1] = atoi(CKata.TabKata);
 		
 		ADVKATA();
-		(*teleporter).TI[i*2] = atoi(CKata.TabKata);
+		(Teleporter).TI[i*2] = atoi(CKata.TabKata);
 	}
 	
 };
