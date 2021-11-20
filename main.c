@@ -41,8 +41,6 @@ int main()
 			printf("Masukan command : ");
 			scanf("%s",&command);
 			Command(command,player1,player2,Map,MaxRoll,Teleporter);
-			printf("Masukan f : ");
-			scanf("%d",&f);
 			player1.CPosition = f;
 			if (player1.CPosition >= HighestPosition ){
 				HighestPosition = player1.CPosition;
@@ -59,8 +57,6 @@ int main()
 			scanf("%s",&command);
 			printf("Masukan command : ");
 			Command(command,player2,player1,Map,MaxRoll,Teleporter);
-			printf("Masukan f : ");
-			scanf("%d",&f);
 			player1.CPosition = f;
 			if (player2.CPosition >= HighestPosition ){
 				HighestPosition = player2.CPosition;
