@@ -13,7 +13,7 @@ int RollDaduNormal() {
     //range [1 to MaxRoll]
 }
 
-int RollDaduKecil() {//Didapat dari buff Senter Pengecil Hoki
+int RollDaduKecil() {//digunakan saat player memiliki buff Senter Pengecil Hoki
     int n;
     int a = floor(MaxRoll/2);
     srand(time(NULL));
@@ -22,7 +22,7 @@ int RollDaduKecil() {//Didapat dari buff Senter Pengecil Hoki
     //range [1 to floor(MaxRoll/2)]
 }
 
-int RollDaduBesar() {//Didapat dari buff Senter Pembesar Hoki
+int RollDaduBesar() {//digunakan saat player memiliki buff Senter Pembesar Hoki
     int n;
     int a= floor(MaxRoll/2);
     srand(time(NULL)); 
