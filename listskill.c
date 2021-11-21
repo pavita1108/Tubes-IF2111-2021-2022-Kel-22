@@ -30,7 +30,7 @@ void DelSkill (List *L, int i){
     i = abs(i);
 	if (SearchList(*L,i)){
 		DelPList(L, i);
-		if (i == 2){
+		if (i == 2){ // biar mastiin skill 2 emang udah ada walaupun udah diapus
 			CerminGanda(L);
 		}
 	}

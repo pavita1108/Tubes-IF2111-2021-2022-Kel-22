@@ -11,10 +11,8 @@ int main(){
     CreateEmptyList(&Buff);//list buff yg aktif pada seorang player
     
     printf("Skill yang didapatkan pada giliran ini:\n");
-    for (int i = 0; i < 10; i ++){
-        R1 = RandomizeSkill();
-        AddSkill(&Skill, R1);
-    }
+    R1 = RandomizeSkill();
+    AddSkill(&Skill, R1);
 
     if (!IsEmptyList(Skill)){
         printf("\nKamu memiliki skill:\n");
