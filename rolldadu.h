@@ -13,5 +13,6 @@ int RollDaduKecil();
 //Menghasilkan angka dadu dari 1~floor(MaxRoll/2) akibat terkena buff Sinar Pengecil Hoki
 int RollDaduBesar();
 ////Menghasilkan angka dadu dari floor(MaxRoll/2)~MaxRoll akibat terkena buff Sinar Pembesar Hoki
-
+void Roll(Player P);
+//mengocok dadu sesuai kondisi player(buff)
 #endif
