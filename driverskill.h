@@ -5,6 +5,6 @@
 #ifndef SKILL_H
 #define SKILL_H
 
-void Skill();
+int main();
 
 #endif

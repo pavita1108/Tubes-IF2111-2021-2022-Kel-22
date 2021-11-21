@@ -18,9 +18,10 @@ void DelSkill (List *L, int i);
 
 void AddSkill (List *L, int hasil);
 /* Mengeluarkan nama skill dengan menggunakan angka dari fungsi RandomizeSkill
-dan memasukkannya ke list skill jika banyak elemen di list skill masih kurang atau sama dengan 10 */
+dan memasukkannya ke list skill jika banyak elemen di list skill masih kurang dari 10 */
 
 int CurrentSkill (int inputskill);
 /* Mereturn skill yang sedang aktif */
 
+void CerminGanda (List *L);
 #endif

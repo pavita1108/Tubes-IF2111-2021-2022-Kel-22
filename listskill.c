@@ -20,26 +20,23 @@ int NbElmt (List *L){
 int RandomizeSkill (){
 	int result, skill, x, i;
 	srand((unsigned) (time(0)));
-    for(i = 1; i < 10; i++){
-        x = rand() % 10;
-    }
+    x = rand() % 10;
     result = (result + x) % 10;
     return result;
 }
 
 void DelSkill (List *L, int i){
-    if (i != 0 ){
-        if (i < 0){
-            int DelNum;
-            i = abs(i);
-            DelPList(L, i);
-            printf("Membuang skill %d", i);
-        }
-        else{
-			DelPList(L, i);
-            printf("Menggunakan skill %d", i);
-        }
-    }
+	int DelNum;
+    i = abs(i);
+	if (SearchList(*L,i)){
+		DelPList(L, i);
+		if (i == 2){
+			CerminGanda(L);
+		}
+	}
+	else{
+		printf("\nAnda tidak memiliki skill tersebut");
+	}
 }
 
 void AddSkill (List *L, int hasil){
@@ -72,7 +69,7 @@ void AddSkill (List *L, int hasil){
 
 	if (skill != 0 && NbElmt(L) < 11){
 		InsVLastList(L, skill);
-		printf("\nSkill berhasil dimasukkan\n");
+		printf("Skill berhasil dimasukkan\n");
 	}
 
 	else if (NbElmt(L) >= 11){
@@ -85,4 +82,19 @@ int CurrentSkill (int inputskill){
 	int CurrSkill;
 	CurrSkill = inputskill;
 	return CurrSkill;
+}
+
+void CerminGanda (List *L){
+	if (NbElmt(L) <= 9){
+		printf("\nAnda mendapatkan skill:\n");
+		AddSkill(L, RandomizeSkill());
+		printf("\n");
+		AddSkill(L, RandomizeSkill());
+		printf("\nKamu memiliki skill:\n");
+		PrintForwardList(*L);
+		printf("\nKeterangan:\n1 = Pintu Ga Ke Mana-Mana\n2 = Cermin Pengganda\n3 = Senter Pembesar Hoki\n4 = Senter Pengecil Hoki\n5 = Mesin Penukar Hoki\n");
+	}
+	else{
+		printf("\nUntuk menggunakan skill 2, Anda harus memiliki skill kurang dari 10");
+	}
 }
