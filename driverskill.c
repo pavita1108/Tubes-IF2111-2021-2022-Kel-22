@@ -1,8 +1,8 @@
-/*#include "listskill.h"
+#include "listskill.h"
 #include <stdio.h>
 #include <stdlib.h>
 
-int main(){
+void Skill(){
     int R1, i, inputskill;
     List Skill, Buff;
     address P;
@@ -33,7 +33,4 @@ int main(){
             }
         }
     }
-
-    
 }
-*/
