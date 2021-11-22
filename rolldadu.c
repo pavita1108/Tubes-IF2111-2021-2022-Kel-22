@@ -1,9 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <rolldadu.h>
+#include "rolldadu.h"
 #include <time.h>
-#include <player.h>
-#include <map.h>
+#include <math.h>
+#include "player.h"
+#include "map.h"
 
 int RollDaduNormal() {
     int n;
@@ -31,39 +32,145 @@ int RollDaduBesar() {//digunakan saat player memiliki buff Senter Pembesar Hoki
     //range [floor(MaxRoll/2) to MaxRoll]
 }
 
-void Roll(Player P){
-//KAMUS LOKAL
-    address Q;
-    int a; //angka dadu yg keluar
-//ALGORITMA
-    Q = SearchList(P.Buff,3); //cek buff sinar pembesar hoki
-    if (Q != Nil){
-        a = RollDaduBesar();
-    }
-    else{//buff  sinar pembesar hoki tidak ditemukan
-        Q = SearchList(P.Buff,4); //cek buff sinar pengecil hoki
-        if (Q != Nil){
-            a = RollDaduKecil();}
-        else{//gapunya buff sinar pengecil hoki juga, roll dadu normal
-            a = RollDaduNormal(); 
-        }
-    }
-    printf("Anda mendapatkan angka:%d", a);
-    //Checking map (belum selesai)
-    /*if (a petak di depan dan di belakang adalah petak terlarang){
-        printf("Borak tidak dapat bergerak");
-    }
-    else if (a petak di depan tidak terlarang tapi a petak belakang terlarang){
-        printf("Anda dapat maju %d", a,"langkah");
-    ()
-*/
+int Roll(Player P){
+	if (P.doneRoll==false){
+	    int a; 
+	    if (P.Pembesar == true){
+	        a = RollDaduBesar();
+	    }
+	    else if (P.Pengecil == true){
+	        a = RollDaduKecil();
+	    }
+	    else{
+	    	a = RollDaduNormal();
+		}
+		printf("%s",P.Nama);
+	    printf(" mendapatkan angka %d\n", a);
+	    return a;
+	}
 }
-//Test Angka Dadu//
-/*
-void main() {
-    printf("%d ", RollDaduNormal());
-}
-*/
 
+void Move(Player *P, int hasil){
+	int tambah,kurang;
+	boolean gerak;
+	gerak = false;
+	if ((*P).doneRoll==false){
+		tambah = (*P).CPosition + hasil;
+		kurang = (*P).CPosition - hasil;
+		
+		if(Map[tambah] == '.' && Map[kurang] == '.'&& kurang > 0 && tambah <= N){
+			gerak = true;
+			int jwb;
+			printf("%s",(*P).Nama);
+    		puts(" dapat maju mundur.");
+    		printf("Ke mana %s mau bergerak:\n",(*P).Nama);
+    		printf("1. %d\n", kurang);
+    		printf("2. %d\n", tambah);
+    		printf("Masukkan pilihan : ");
+    		scanf("%d",&jwb);
+    		
+			while (jwb != 1 && jwb != 2){
+				puts("Pilihan salah masukkan lagi");
+				printf("Masukkan pilihan : ");
+    			scanf("%d",jwb);
+			};
+			
+			if(jwb == 1){
+				(*P).CPosition = kurang;
+				printf("%s",(*P).Nama);
+				printf(" mundur %d langkah.\n",hasil);
+				printf("%s",(*P).Nama);
+				printf(" berada di petak %d.\n",kurang);
+			}
+			else{//jwb == 2
+				(*P).CPosition = tambah;
+				printf("%s",(*P).Nama);
+				printf(" maju %d langkah.\n",hasil);
+				printf("%s",(*P).Nama);
+				printf(" berada di petak %d.\n",((*P).CPosition)+1);
+			}
+		}
+		else if(Map[tambah] == '.' && tambah <= N){
+			gerak = true;
+			(*P).CPosition = tambah;
+			printf("%s",(*P).Nama);
+			printf(" maju %d langkah.\n",hasil);
+			printf("%s",(*P).Nama);
+			printf(" berada di petak %d.\n",((*P).CPosition)+1);
+		}
+		else if (Map[kurang] == '.'&& kurang > 0 ){
+			gerak = true;
+			(*P).CPosition = kurang;
+			printf("%s",(*P).Nama);
+			printf(" mundur %d langkah.\n",hasil);
+			printf("%s",(*P).Nama);
+			printf(" berada di petak %d.\n",((*P).CPosition)+1);
+		}
+		else{
+			printf("%s",(*P).Nama);
+			puts(" tidak dapat bergerak.");
+		}
+		
+		if(gerak){
+			boolean found;
+			int tujuan,i;
+			i = 1;
+			found = false;
+			while (found == false && i<((Teleporter.Neff)/2)+1){
+				if (Teleporter.TI[i*2-1]== ((*P).CPosition)+1){
+					printf("Petak %d memiliki teleporter menuju %d.\n",((*P).CPosition)+1,Teleporter.TI[i*2]);
+					tujuan = Teleporter.TI[i*2];
+					found=true;
+				}
+				i++;
+			};
+			
+			if (found == false){
+				printf("%s",(*P).Nama);
+				puts(" tidak menemukan teleporter.");
+			}
+			else{
+				printf("%s",(*P).Nama);
+				printf(" menemukan teleporter.");
+				if((*P).Imun){
+					char a;
+					printf("%s",(*P).Nama);
+					puts(" memiliki imunitas teleport.");
+					printf("Apakah Mobita ingin teleport (Y/N)?");
+					scanf("%c",&a);
+					while (a != 'Y' && a != 'N'){
+						printf("Jawaban tidak valid.\n");
+						printf("Apakah ingin teleport (Y/N)?");
+						scanf("%c",&a);
+					}
+					
+					if (a == 'Y'){
+						(*P).CPosition = tujuan -1;
+						printf("%s",(*P).Nama);
+						printf(" teleport ke petak %d.\n", tujuan);
+					}
+					else{
+						printf("%s",(*P).Nama);
+						puts(" tidak teleport.") ;
+                        (*P).Imun = false ;
+                        puts("Buff imunitas teleport hilang.") ;
+					}
+				}
+				else{
+					(*P).CPosition = tujuan -1;
+					printf("%s",(*P).Nama);
+					printf(" tidak memiliki imun.\n");
+					printf("%s",(*P).Nama);
+					printf(" teleport ke petak %d.\n", tujuan);
+				}
+			}
+		}
+		(*P).doneRoll = true;
+	}
+	else{
+		puts("Kamu udh ngeroll.");
+	}
+	
+}
 
 
