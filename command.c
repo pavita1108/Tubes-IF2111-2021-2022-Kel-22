@@ -5,13 +5,24 @@
 
 void Command(char input[10],TabPlayer *TPlayer, Player *CPlayer){
 	if (strcmp(input,"SKILL") == 0){
-		printf("SKILL");
+		puts("SKILL");
 	}
 	else if (strcmp(input,"MAP")== 0){
 		PrintMap(*TPlayer,Map);
 	}
 	else if (strcmp(input,"BUFF")== 0){
-		printf("BUFF");
+		if((*CPlayer).Imun){
+			puts("Imunitas Teleport");
+		}
+		if((*CPlayer).Pembesar){
+			puts("Senter Pembesar Hoki");
+		}
+		if ((*CPlayer).Pengecil){
+			puts("Senter Pengecil Hoki");
+		}
+		if ((*CPlayer).Pengganda){
+			puts("Cermin Pengganda");
+		}
 	}
 	else if (strcmp(input,"INSPECT")== 0){
 		inspect();
@@ -22,7 +33,7 @@ void Command(char input[10],TabPlayer *TPlayer, Player *CPlayer){
 		Move(&(*CPlayer),hasil);
 	}
 	else if (strcmp(input,"UNDO")== 0){
-		printf("UNDO");
+		puts("UNDO");
 	}
 	else if (strcmp(input,"ENDTURN")== 0){
 		puts("Lanjut pemain berikutnya");
