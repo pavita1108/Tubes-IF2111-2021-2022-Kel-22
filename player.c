@@ -19,3 +19,10 @@ void MakeTabPlayer (TabPlayer *TPlayer, int neff){
 		MakePlayer(&((*TPlayer).TI[i]));
 	}
 }
+
+void ResetPlayer(Player *P){
+	(*P).Imun = false;
+	(*P).Pembesar = false;
+	(*P).Pengecil = false;
+	(*P).doneRoll = false;
+}

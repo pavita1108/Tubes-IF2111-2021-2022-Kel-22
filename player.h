@@ -24,4 +24,6 @@ void MakePlayer (Player *P);
 
 void MakeTabPlayer (TabPlayer *TPlayer, int neff);
 //membuat tabplayer
+
+void ResetPlayer(Player *P);
 #endif
