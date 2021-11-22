@@ -12,6 +12,7 @@ typedef struct {
 	boolean Pembesar;
 	boolean Pengecil;
 	boolean doneRoll;
+	boolean Pengganda; //biar gampang ngecek dia udh pake pengganda apa belom
 }Player;
 
 typedef struct {

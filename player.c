@@ -8,6 +8,7 @@ void MakePlayer (Player *P){
 	(*P).Imun = false;
 	(*P).Pembesar = false;
 	(*P).Pengecil = false;
+	(*P).Pengganda = false; //biar gampang ngecek dia udh pake pengganda apa belom
 	(*P).doneRoll = false;
 };
 
@@ -24,5 +25,6 @@ void ResetPlayer(Player *P){
 	(*P).Imun = false;
 	(*P).Pembesar = false;
 	(*P).Pengecil = false;
+	(*P).Pengganda = false;
 	(*P).doneRoll = false;
 }
