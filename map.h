@@ -7,14 +7,14 @@
 
 #ifndef MAP_H
 #define MAP_H
-extern char Map[100];
+
+extern char Map[101];
 extern int MaxRoll,N;
 extern TabInt Teleporter;
 
-
 void readConfig ();
 //Membaca file konfigurasi
-void PrintMap(Player a , char map[100]);
+void PrintMap(TabPlayer a , char map[101]);
 //Mengeluarkan current position dari player
 #endif
 

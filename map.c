@@ -5,7 +5,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-char Map[100];
+char Map[101];
 int MaxRoll,N;
 TabInt Teleporter;
 
@@ -35,9 +35,15 @@ void readConfig (){
 	
 };
 
-void PrintMap(Player a , char map[100]){
-	printf("%s : ",a.Nama);
-	map[a.CPosition] = '*';
-	printf("%s %d", map,(a.CPosition+1));
+void PrintMap(TabPlayer a , char map[101]){
+	int i;
+	for (i = 0 ; i<a.Neff;i++){
+		printf("%s : ",a.TI[i].Nama);
+		map[a.TI[i].CPosition] = '*';
+		printf("%s %d", map,((a.TI[i].CPosition)+1));
+		printf("\n");
+		map[a.TI[i].CPosition] = '.';
+	}
+	
 }
 
