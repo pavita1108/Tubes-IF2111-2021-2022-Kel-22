@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "impskill.h"
+#include "listskill.h"
 #include "player.h"
 #include "map.h"
 
@@ -37,11 +38,11 @@ void Skill(Player *P, TabPlayer *TPlayer){
 							AddSkill(&((*P).Skill),a);
 							a = RandomizeSkill();
 							AddSkill(&((*P).Skill),a);
+							puts("Cermin Pengganda berhasil dipakai");
 						}
 						else{
-							printf("\nUntuk menggunakan skill 2, Anda harus memiliki skill kurang dari 10");
+							printf("\nUntuk menggunakan skill 2, Anda harus memiliki skill kurang dari 10\n");
 						}
-						puts("Cermin Pengganda berhasil dipakai");
 					}
 					else{
 						puts("Udah pernah make Cermin Pengganda");
