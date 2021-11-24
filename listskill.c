@@ -5,9 +5,9 @@
 #include <stdlib.h>
 #include <time.h>
 
-int NbElmt (List *L){
+int NbElmt (List L){
 	address P;
-	P = First(*L);
+	P = First(L);
 	int count;
 	count = 1;
 	while (P != Nil){
@@ -52,12 +52,12 @@ void AddSkill (List *L, int hasil){
         printf("Maaf Anda mendapatkan Teknologi Gagal\n");
 	}
 
-	if (skill != 0 && NbElmt(L) < 11){
+	if (skill != 0 && NbElmt(*L) < 11){
 		InsVLastList(L, skill);
 		printf("\nSkill berhasil dimasukkan\n");
 	}
 
-	else if (NbElmt(L) >= 11){
+	else if (NbElmt(*L) >= 11){
 		printf("Jumlah skill yang dimiliki sudah 10\n");
 	}
 }

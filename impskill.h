@@ -7,6 +7,6 @@
 #include "map.h"
 
 void Skill(Player *P, TabPlayer *TPlayer);
-void CerminGanda (List *L);
+
  
 #endif

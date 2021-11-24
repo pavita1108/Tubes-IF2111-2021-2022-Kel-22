@@ -7,7 +7,7 @@
 #include <stdlib.h>
 #include <time.h>
 
-int NbElmt (List *L);
+int NbElmt (List L);
 /* Menghitung penjang list */
 
 int RandomizeSkill ();
