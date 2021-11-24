@@ -6,7 +6,7 @@
 #include "player.h"
 #include "map.h"
 
-void tukarposisi (Player P, TabPlayer TPlayer);
-//menukar posisi seorang player dengan player lain yang dipilih
+void Skill(Player *P, TabPlayer *TPlayer);
+void CerminGanda (List *L);
  
 #endif

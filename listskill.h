@@ -13,15 +13,12 @@ int NbElmt (List *L);
 int RandomizeSkill ();
 /* Menghasilkan angka yang akan dipakai di procedure AddSkill */
 
-void DelSkill (List *L, int i);
-/* Menghapus skill yang diinput user baik untuk membuang dan menggunakan */
 
 void AddSkill (List *L, int hasil);
 /* Mengeluarkan nama skill dengan menggunakan angka dari fungsi RandomizeSkill
-dan memasukkannya ke list skill jika banyak elemen di list skill masih kurang dari 10 */
+dan memasukkannya ke list skill jika banyak elemen di list skill masih kurang atau sama dengan 10 */
 
 int CurrentSkill (int inputskill);
 /* Mereturn skill yang sedang aktif */
 
-void CerminGanda (List *L);
 #endif

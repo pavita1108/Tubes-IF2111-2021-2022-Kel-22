@@ -26,6 +26,7 @@ int main()
 	//Mulai game
 	puts("-----POSISI AWAL-----");
 	PrintMap(TPlayer,Map);
+	int i;
 
 	
 	//Mulai Looping
@@ -44,20 +45,7 @@ int main()
 			a = RandomizeSkill();
 			AddSkill(&(TPlayer.TI[i].Skill),a);
 			
-			printf("Masukan Command : ");
-			scanf("%s",&command);
-			while(strcmp(command,"ENDTURN") == 0){
-				puts("Tidak boleh ENDTURN di awal. Masukan command lagi!");
-				printf("Masukan Command : ");
-				scanf("%s",&command);
-			}
-			Command(command,&TPlayer,&(TPlayer.TI[i]));
-			if ((TPlayer.TI[i].CPosition)+1 == N){
-				puts("YAY KAMU MENANG. CONGRATSSS!!!!");	
-				exit(1);
-			};
-			
-			while (strcmp(command,"ENDTURN") != 0 ){
+			do{
 				printf("Masukan Command : ");
 				scanf("%s",&command);
 				Command(command,&TPlayer,&(TPlayer.TI[i]));
@@ -65,7 +53,7 @@ int main()
 					puts("YAY KAMU MENANG. CONGRATSSS!!!!");	
 					exit(1);
 				}
-			}
+			}while (!(TPlayer.TI[i].doneRoll == true && strcmp(command,"ENDTURN") == 0 ));
 			ResetPlayer(&(TPlayer.TI[i]));
 		}
 		ronde++;

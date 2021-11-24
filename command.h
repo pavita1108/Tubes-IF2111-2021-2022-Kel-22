@@ -3,6 +3,7 @@
 #include "boolean.h"
 #include "map.h"
 #include "rolldadu.h"
+#include "impskill.h"
 
 #ifndef COMMAND_H
 #define COMMAND_H

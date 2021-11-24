@@ -108,7 +108,7 @@ void Move(Player *P, int hasil){
 		}
 		else{
 			printf("%s",(*P).Nama);
-			puts(" tidak dapat bergerak.");
+			puts(" tidak dapat bergerak.\n");
 		}
 		
 		if(gerak){
@@ -131,17 +131,19 @@ void Move(Player *P, int hasil){
 			}
 			else{
 				printf("%s",(*P).Nama);
-				printf(" menemukan teleporter.");
+				printf(" menemukan teleporter.\n");
 				if((*P).Imun){
 					char a;
 					printf("%s",(*P).Nama);
 					puts(" memiliki imunitas teleport.");
-					printf("Apakah Mobita ingin teleport (Y/N)?");
 					scanf("%c",&a);
 					while (a != 'Y' && a != 'N'){
 						printf("Jawaban tidak valid.\n");
 						printf("Apakah ingin teleport (Y/N)?");
 						scanf("%c",&a);
+						if ( a == 'Y' || a == 'N'){
+							break;
+						}
 					}
 					
 					if (a == 'Y'){

@@ -5,7 +5,7 @@
 
 void Command(char input[10],TabPlayer *TPlayer, Player *CPlayer){
 	if (strcmp(input,"SKILL") == 0){
-		puts("SKILL");
+		Skill(&(*CPlayer),&(*TPlayer));
 	}
 	else if (strcmp(input,"MAP")== 0){
 		PrintMap(*TPlayer,Map);
@@ -36,7 +36,7 @@ void Command(char input[10],TabPlayer *TPlayer, Player *CPlayer){
 		puts("UNDO");
 	}
 	else if (strcmp(input,"ENDTURN")== 0){
-		puts("Lanjut pemain berikutnya");
+		printf("");
 	}
 	else{
 		puts("Salah input");
