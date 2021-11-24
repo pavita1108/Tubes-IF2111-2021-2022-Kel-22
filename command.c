@@ -1,4 +1,6 @@
 #include "command.h"
+#include "inspect.h"
+#include "map.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>

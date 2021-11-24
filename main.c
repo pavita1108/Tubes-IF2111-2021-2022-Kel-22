@@ -2,6 +2,7 @@
 #include "map.h"
 #include "array.h"
 #include "command.h"
+#include "rolldadu.h"
 #include "listskill.h"
 #include <stdio.h>
 #include <string.h>
