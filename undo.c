@@ -8,7 +8,7 @@
 
 void undo(Stack stackPemain) {
 
-    if (Top(stackPemain) > 1) {
+    if (Top(stackPemain) >= 1) {
         PopStack(&stackPemain, &InfoTop(stackPemain));
     }
 }
