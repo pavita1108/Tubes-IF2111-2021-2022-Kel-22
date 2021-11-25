@@ -1,6 +1,7 @@
 #include "boolean.h"
 #include "listdp.h"
 #include "listskill.h"
+#include "array.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
@@ -67,4 +68,37 @@ int CurrentSkill (int inputskill){
 	int CurrSkill;
 	CurrSkill = inputskill;
 	return CurrSkill;
+}
+
+void PrintSkill(List L,TabInt *T){
+	address P ;
+	int i;
+	i =1;
+	P = First(L);
+    do
+    {
+    	printf("%d. ",i);
+        if (Info(P) == 1){
+        	puts("Pintu Ga Ke Mana-Mana");
+        	(*T).TI[i-1]=1;
+		}
+		else if (Info(P) == 2){
+			puts("Cermin Pengganda");
+			(*T).TI[i-1]=2;
+		}
+		else if (Info(P) == 3){
+			puts("Senter Pembesar Hoki");
+			(*T).TI[i-1]=3;
+		}
+		else if (Info(P) == 4){
+			puts("Senter Pengecil Hoki");
+			(*T).TI[i-1]=4;
+		}
+		else if (Info(P) == 5){
+			puts("Mesin Penukar Hoki");
+			(*T).TI[i-1]=5;
+		}
+        P = Next(P);
+        i++;
+    } while (P != Nil);
 }

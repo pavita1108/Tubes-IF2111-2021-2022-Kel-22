@@ -3,6 +3,7 @@
 
 #include "boolean.h"
 #include "listdp.h"
+#include "array.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
@@ -20,5 +21,7 @@ dan memasukkannya ke list skill jika banyak elemen di list skill masih kurang at
 
 int CurrentSkill (int inputskill);
 /* Mereturn skill yang sedang aktif */
+
+void PrintSkill(List L,TabInt *T);
 
 #endif

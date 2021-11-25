@@ -1,34 +1,38 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "impskill.h"
 #include "listskill.h"
+#include "impskill.h"
+#include "array.h"
 #include "player.h"
 #include "map.h"
 
 void Skill(Player *P, TabPlayer *TPlayer){
 	if (!IsEmptyList((*P).Skill)){
+		TabInt t;
+		MakeEmptyArray(&t);
         printf("\nKamu memiliki skill:\n");
-        PrintForwardList((*P).Skill);
-        printf("\nKeterangan:\n1 = Pintu Ga Ke Mana-Mana\n2 = Cermin Pengganda\n3 = Senter Pembesar Hoki\n4 = Senter Pengecil Hoki\n5 = Mesin Penukar Hoki\n");
+        PrintSkill((*P).Skill,&t);
+        
         printf("\nTekan 0 untuk keluar. Masukkan bilangan negatif untuk membuang skill\n\n"); 
 
         // Memasukkan nomor skill yang akan dihapus 
-        int i,inputskill;
+        int i,inputskill,a;
         printf("Masukkan skill: ");
         scanf("%d", &inputskill);  
         
         if (inputskill != 0){
-			i = abs(inputskill );
+			a = abs(inputskill);
+			i = t.TI[a-1];
 			if (SearchList((*P).Skill,i)){
 				DelPList(&((*P).Skill), i);
 				if(inputskill < 0 ){
 					puts("Skill berhasil dibuang");
 				}
-				else if (inputskill == 1){
+				else if (i == 1){
 					(*P).Imun = true;
 					puts("Pintu Ga Ke Mana-Mana berhasil dipakai");
 				}
-				else if (inputskill == 2){
+				else if (i == 2){
 					if ((*P).Pengganda == false){
 						(*P).Pengganda = true;
 						if (NbElmt((*P).Skill)<= 9){
@@ -43,6 +47,7 @@ void Skill(Player *P, TabPlayer *TPlayer){
 						else{
 							printf("\nUntuk menggunakan skill 2, Anda harus memiliki skill kurang dari 10\n");
 						}
+						
 					}
 					else{
 						puts("Udah pernah make Cermin Pengganda");
@@ -50,7 +55,7 @@ void Skill(Player *P, TabPlayer *TPlayer){
 					}
 					
 				}
-				else if (inputskill == 3){
+				else if (i == 3){
 					if ((*P).Pengecil == false){
 						(*P).Pembesar = true;
 						puts("Senter Pembesar Hoki berhasil dipakai");
@@ -60,7 +65,7 @@ void Skill(Player *P, TabPlayer *TPlayer){
 						InsVLastList (&((*P).Skill), i);
 					}
 				}
-				else if (inputskill == 4){
+				else if (i == 4){
 					if ((*P).Pembesar == false){
 						(*P).Pengecil = true;
 						puts("Senter Pengecil Hoki berhasil dipakai");
@@ -70,7 +75,7 @@ void Skill(Player *P, TabPlayer *TPlayer){
 						InsVLastList (&((*P).Skill), i);
 					}
 				}
-				else if (inputskill == 5){
+				else if (i == 5){
 					//KAMUS
 					int input, anda, temp,i;
 				    //ALGORITMA
