@@ -1,6 +1,4 @@
 #include "command.h"
-#include "inspect.h"
-#include "map.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -35,7 +33,7 @@ void Command(char input[10],TabPlayer *TPlayer, Player *CPlayer){
 		Move(&(*CPlayer),hasil);
 	}
 	else if (strcmp(input,"UNDO")== 0){
-		puts("UNDO");
+		printf("");
 	}
 	else if (strcmp(input,"ENDTURN")== 0){
 		printf("");

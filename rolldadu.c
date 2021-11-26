@@ -16,7 +16,7 @@ int RollDaduNormal() {
 
 int RollDaduKecil() {//digunakan saat player memiliki buff Senter Pengecil Hoki
     int n;
-    int a = floor(MaxRoll/2);
+    int a = (MaxRoll/2);
     srand(time(NULL));
     n = (rand() % a)+ 1;
     return n;
@@ -25,7 +25,7 @@ int RollDaduKecil() {//digunakan saat player memiliki buff Senter Pengecil Hoki
 
 int RollDaduBesar() {//digunakan saat player memiliki buff Senter Pembesar Hoki
     int n;
-    int a= floor(MaxRoll/2);
+    int a= (MaxRoll/2);
     srand(time(NULL)); 
     n = (rand() % (MaxRoll+1-a) )+ a; 
     return n;
@@ -64,8 +64,8 @@ void Move(Player *P, int hasil){
 			printf("%s",(*P).Nama);
     		puts(" dapat maju mundur.");
     		printf("Ke mana %s mau bergerak:\n",(*P).Nama);
-    		printf("1. %d\n", kurang);
-    		printf("2. %d\n", tambah);
+    		printf("1. %d\n", kurang+1);
+    		printf("2. %d\n", tambah+1);
     		printf("Masukkan pilihan : ");
     		scanf("%d",&jwb);
     		

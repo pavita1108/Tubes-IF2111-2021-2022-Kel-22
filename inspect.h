@@ -4,6 +4,6 @@
 
 #ifndef INSPECT_H
 #define INSPECT_H
-void inspect();
+void Inspect();
 
 #endif

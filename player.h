@@ -27,4 +27,6 @@ void MakeTabPlayer (TabPlayer *TPlayer, int neff);
 //membuat tabplayer
 
 void ResetPlayer(Player *P);
+
+void copySkill(List origin, List *copy);
 #endif

@@ -8,7 +8,7 @@
 
 #include "boolean.h"
 
-#define Nil NULL
+#define NilList NULL
 
 /* Definisi Type Data */
 typedef int infotype;
