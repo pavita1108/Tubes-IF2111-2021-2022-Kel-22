@@ -6,14 +6,14 @@
 /* PROTOTYPE */
 /****************** TEST LIST KOSONG ******************/
 boolean IsEmptyList (List L){
-	return (First(L) == Nil && Last(L) == Nil);
+	return (First(L) == NilList && Last(L) == NilList);
 };
 /* Mengirim true jika list kosong. Lihat definisi di atas. */
 
 /****************** PEMBUATAN LIST KOSONG ******************/
 void CreateEmptyList (List *L){
-	First(*L) = Nil;
-    Last(*L) = Nil;
+	First(*L) = NilList;
+    Last(*L) = NilList;
 };
 /* I.S. L sembarang  */
 /* F.S. Terbentuk list kosong. Lihat definisi di atas. */
@@ -21,16 +21,16 @@ void CreateEmptyList (List *L){
 /****************** Manajemen Memori ******************/
 address AlokasiList (infotype X){
 	ElmtList *P = (ElmtList *)malloc(sizeof(ElmtList));
-    if (P != Nil)
+    if (P != NilList)
     {
         Info(P) = X;
-        Next(P) = Nil;
-        Prev(P) = Nil;
+        Next(P) = NilList;
+        Prev(P) = NilList;
         return P;
     }
     else
     {
-        return Nil;
+        return NilList;
     }
 };
 /* Mengirimkan address hasil alokasi sebuah elemen */
@@ -49,7 +49,7 @@ address SearchList (List L, infotype X){
 	address P;
 	P = First(L);
     if (!IsEmptyList(L))
-        while (((P) != Nil) && (Info(P) != X))
+        while (((P) != NilList) && (Info(P) != X))
         {
             P = Next(P);
         }
@@ -64,7 +64,7 @@ address SearchList (List L, infotype X){
 void InsVFirstList (List *L, infotype X){
 	address P;
 	P = AlokasiList(X);
-    if (P != Nil)
+    if (P != NilList)
         InsertFirstList(L, P);
 };
 /* I.S. L mungkin kosong */
@@ -73,7 +73,7 @@ void InsVFirstList (List *L, infotype X){
 void InsVLastList (List *L, infotype X){
 	address P;
 	P = AlokasiList(X);
-    if (P != Nil)
+    if (P != NilList)
         InsertLastList(L, P);
 };
 /* I.S. L mungkin kosong */
@@ -108,8 +108,8 @@ void InsertFirstList (List *L, address P){
     {
         First(*L) = P;
         Last(*L) = P;
-        Next(P) = Nil;
-        Prev(P) = Nil;
+        Next(P) = NilList;
+        Prev(P) = NilList;
     }
     else
         InsertBeforeList(L, P, First(*L));
@@ -119,8 +119,8 @@ void InsertFirstList (List *L, address P){
 void InsertLastList (List *L, address P){
 	if (IsEmptyList(*L))
     {
-        Next(P) = Nil;
-        Prev(P) = Nil;
+        Next(P) = NilList;
+        Prev(P) = NilList;
         First(*L) = P;
         Last(*L) = P;
     }
@@ -132,7 +132,7 @@ void InsertLastList (List *L, address P){
 void InsertAfterList (List *L, address P, address Prec){
 	Next(P) = Next(Prec);
 
-    if (Next(Prec) != Nil)
+    if (Next(Prec) != NilList)
     {
         Prev(Next(Prec)) = P;
     }
@@ -149,7 +149,7 @@ void InsertAfterList (List *L, address P, address Prec){
 void InsertBeforeList (List *L, address P, address Succ){
 	Prev(P) = Prev(Succ);
 
-    if (Prev(Succ) != Nil)
+    if (Prev(Succ) != NilList)
     {
         Next(Prev(Succ)) = P;
     }
@@ -168,13 +168,13 @@ void InsertBeforeList (List *L, address P, address Succ){
 void DelFirstList (List *L, address *P){
 	*P = First(*L);
     First(*L) = Next(First(*L));
-    if (First(*L) == Nil)
+    if (First(*L) == NilList)
     {
         CreateEmptyList(L);
     }
     else
     {
-        Prev(First(*L)) = Nil;
+        Prev(First(*L)) = NilList;
     }
 };
 /* I.S. List tidak kosong */
@@ -184,13 +184,13 @@ void DelFirstList (List *L, address *P){
 void DelLastList (List *L, address *P){
 	*P = Last(*L);
     Last(*L) = Prev(Last(*L));
-    if (Last(*L) == Nil)
+    if (Last(*L) == NilList)
     {
         CreateEmptyList(L);
     }
     else
     {
-        Next(Last(*L)) = Nil;
+        Next(Last(*L)) = NilList;
     }
 };
 /* I.S. List tidak kosong */
@@ -200,7 +200,7 @@ void DelLastList (List *L, address *P){
 void DelPList (List *L, infotype X) {
     address P ;
 	P = SearchList(*L, X) ;
-    if (P != Nil) {
+    if (P != NilList) {
         if (P == First(*L)) {
             DelFirstList(L, &P) ;
         }
@@ -223,7 +223,7 @@ void DelAfterList (List *L, address *Pdel, address Prec){
 	*Pdel = Next(Prec);
 
     Next(Prec) = Next(*Pdel);
-    if (Next(*Pdel) != Nil)
+    if (Next(*Pdel) != NilList)
     {
         Prev(Next(*Pdel)) = Prec;
     }
@@ -232,8 +232,8 @@ void DelAfterList (List *L, address *Pdel, address Prec){
         Last(*L) = Prec;
     }
 
-    Next(*Pdel) = Nil;
-    Prev(*Pdel) = Nil;
+    Next(*Pdel) = NilList;
+    Prev(*Pdel) = NilList;
 };
 /* I.S. List tidak kosong. Prec adalah anggota list. */
 /* F.S. Menghapus Next(Prec): */
@@ -242,7 +242,7 @@ void DelBeforeList (List *L, address *Pdel, address Succ){
 	*Pdel = Prev(Succ);
 
     Prev(Succ) = Prev(*Pdel);
-    if (Prev(*Pdel) != Nil)
+    if (Prev(*Pdel) != NilList)
     {
         Next(Prev(*Pdel)) = Succ;
     }
@@ -251,8 +251,8 @@ void DelBeforeList (List *L, address *Pdel, address Succ){
         First(*L) = Succ;
     }
 
-    Next(*Pdel) = Nil;
-    Prev(*Pdel) = Nil;
+    Next(*Pdel) = NilList;
+    Prev(*Pdel) = NilList;
 };
 /* I.S. List tidak kosong. Succ adalah anggota list. */
 /* F.S. Menghapus Prev(Succ): */
@@ -269,9 +269,9 @@ void PrintForwardList (List L){
         {
             printf("%d", Info(P));
             P = Next(P);
-            if (P != Nil)
+            if (P != NilList)
                 printf(",");
-        } while (P != Nil);
+        } while (P != NilList);
     }
     printf("]");
 };
@@ -291,9 +291,9 @@ void PrintBackwardList (List L){
         {
             printf("%d", Info(P));
             P = Prev(P);
-            if (P != Nil)
+            if (P != NilList)
                 printf(",");
-        } while (P != Nil);
+        } while (P != NilList);
     }
     printf("]");
 };

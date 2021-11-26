@@ -1,6 +1,7 @@
 #include "boolean.h"
 #include "listdp.h"
 #include "listskill.h"
+#include "inspect.h"
 #include "array.h"
 #include <stdio.h>
 #include <stdlib.h>
@@ -11,7 +12,7 @@ int NbElmt (List L){
 	P = First(L);
 	int count;
 	count = 1;
-	while (P != Nil){
+	while (P != NilList){
 		count ++;
 		P = Next(P);
 	}
@@ -100,5 +101,5 @@ void PrintSkill(List L,TabInt *T){
 		}
         P = Next(P);
         i++;
-    } while (P != Nil);
+    } while (P != NilList);
 }
