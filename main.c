@@ -61,7 +61,12 @@ int main()
 			do{
 				printf("Masukan Command : ");
 				scanf("%s",&command);
-				Command(command,&TPlayer,&(TPlayer.TI[i]));
+				if (TPlayer.TI[i].doneRoll == true && strcmp(command,"SKILL")== 0){
+					puts("Ga boleh pake skill lagi");
+				}
+				else{
+					Command(command,&TPlayer,&(TPlayer.TI[i]));
+				}
 				if ((TPlayer.TI[i].CPosition)+1 == N){
 					puts("YAY KAMU MENANG. CONGRATSSS!!!!");	
 					exit(1);
@@ -77,7 +82,6 @@ int main()
                     do{
                     	PopStack(&GameHist, &TPlayer);
                     	printf("UNDO berhasil dilakukan\n");
-                    	printf("\n-----RONDE %d----- \n",ronde);
                     	ronde -= 1;
 						PrintMap(TPlayer,Map);
                         printf("Apakah ingin melakukan UNDO lagi? (YES/NO): ");
@@ -85,13 +89,12 @@ int main()
                         if(strcmp(u,"NO")== 0){
                         	break;
 						}
-                    }while (ronde > 1 &&strcmp(u,"YES")== 0);
+                    }while (ronde >= 1 &&strcmp(u,"YES")== 0);
                 }  
                 else {
                     printf("\n");
                     PopStack(&GameHist, &TPlayer);
                     printf("UNDO berhasil dilakukan\n");
-                    printf("\n-----RONDE %d----- \n",ronde);
 					PrintMap(TPlayer,Map);
                 }
                 i = -1;
