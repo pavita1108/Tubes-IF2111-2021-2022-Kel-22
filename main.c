@@ -10,17 +10,36 @@
 
 int main()
 {
-	int b;
+	char *title = 
+		".88b  d88.                                                                             \n"
+		"88'YbdP`88                                                                             \n"
+		"88  88  88                                                                             \n"
+		"88  88  88  .d88b.  d8888b. d888888b d888888b  .d8b.  d8b   db  d888b   d888b   .d8b.  \n"
+		"88  88  88 .8P  Y8. 88  `8D   `88'   `~~88~~' d8' `8b 888o  88 88' Y8b 88' Y8b d8' `8b\n"
+		"88  88  88 88    88 88oooY'    88       88    88ooo88 88V8o 88 88      88      88ooo88\n"
+		"88  88  88 88    88 88~~~b.    88       88    88~~~88 88 V8o88 88  ooo 88  ooo 88~~~88\n"
+		"88  88  88 `8b  d8' 88   8D   .88.      88    88   88 88  V888 88. ~8~ 88. ~8~ 88   88\n"
+		"YP  YP  YP  `Y88P'  Y8888P' Y888888P    YP    YP   YP VP   V8P  Y888P   Y888P  YP   YP\n\n\n";
+	char *welcome_text = 
+		"Selamat datang di Mobitangga!\n"
+		"Perkenalkan, kami kelompok 22. Kami akan menjadi Guide kalian dalam permainan ini!\n";
+		
+	printf(title);
+	printf(welcome_text);
+	char *b = malloc(256);
 	do{
 		
-		puts("1. NEW GAME");
-		puts("2. EXIT");
+		puts("Gunakan NEW GAME untuk memulai permainan baru atau EXIT untuk keluar dari program!");
 		printf("Masukkan input : ");
-		scanf("%d",&b);
-		if(b==2){
+		fgets(b, 256, stdin);
+		if ((strlen(b) > 0) && (b[strlen (b) - 1] == '\n')) {
+			b[strlen(b) - 1] = '\0';
+		}
+		
+		if(strcmp(b, "EXIT") == 0){
 			exit(1);
 		};	
-	}while(b!=1 && b!= 2);
+	}while((strcmp(b, "NEW GAME") != 0) && (strcmp(b, "EXIT") != 0));
 	
 	//Bikin player
 	puts("~~~~~~~SELAMAT DATANG DI MOBITANGGA !!!~~~~~~~~");
