@@ -10,4 +10,5 @@ Kelompok 22
 5. Natasha Tiovanny Silaban     (18220101)
 
 Cara menjalankan permainan:
+
 gcc ./src/adt/Array/array.c ./src/adt/Command/command.c ./src/adt/Impskill/impskill.c ./src/adt/Inspect/inspect.c ./src/adt/Listdp/listdp.c ./src/adt/Listskill/listskill.c ./src/adt/Map/map.c ./src/adt/Mesin_KataMesin_Karakter/mesin_kar.c ./src/adt/Mesin_KataMesin_Karakter/mesin_kata.c ./src/adt/Player/player.c ./src/adt/Rolldadu/rolldadu.c ./src/adt/Stack/stack.c ./src/main.c
