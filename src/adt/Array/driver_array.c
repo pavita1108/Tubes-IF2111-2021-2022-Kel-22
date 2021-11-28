@@ -3,7 +3,7 @@
 #include "array.h"
 #include "boolean.h"
 
-#include "array.c"
+
 void BalikIsiTab (TabInt T) {
 /*I.S. Array terdefinisi*/
 /*F.S. Menamplkan elemen dari array*/
