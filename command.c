@@ -12,16 +12,19 @@ void Command(char input[10],TabPlayer *TPlayer, Player *CPlayer){
 	}
 	else if (strcmp(input,"BUFF")== 0){
 		if((*CPlayer).Imun){
-			puts("Imunitas Teleport");
+			puts("Kamu memiliki buff Imunitas Teleport");
 		}
 		if((*CPlayer).Pembesar){
-			puts("Senter Pembesar Hoki");
+			puts("Kamu memiliki buff Senter Pembesar Hoki");
 		}
 		if ((*CPlayer).Pengecil){
-			puts("Senter Pengecil Hoki");
+			puts("Kamu memiliki buff Senter Pengecil Hoki");
 		}
 		if ((*CPlayer).Pengganda){
-			puts("Cermin Pengganda");
+			puts("Kamu memiliki buff Cermin Pengganda");
+		}
+		if ((((*CPlayer).Imun) == false) && (((*CPlayer).Pembesar) == false) && (((*CPlayer).Pengecil) == false) && (((*CPlayer).Pengganda) == false)) {
+			puts("Kamu tidak memiliki buff aktif");
 		}
 	}
 	else if (strcmp(input,"INSPECT")== 0){
