@@ -87,7 +87,33 @@ int main()
 					Command(command,&TPlayer,&(TPlayer.TI[i]));
 				}
 				if ((TPlayer.TI[i].CPosition)+1 == N){
-					puts("YAY KAMU MENANG. CONGRATSSS!!!!");	
+					int r,k,j,temp,rank;
+					int v;
+					v = 1;
+					int positions[4] = {0, 0, 0, 0};
+    				int ranks[4] = {1, 2, 3, 4};
+					puts("YAY KAMU MENANG. CONGRATSSS!!!!");
+					for( r=0;r<TPlayer.Neff;r++){
+        				positions[r] = TPlayer.TI[r].CPosition;
+    				}
+    				for(k=0;k<3;k++){ 
+				        for( j=0;j<TPlayer.Neff-1;j++){
+				            if(positions[j] > positions[j+1]){
+				                temp = positions[j];
+				                positions[j] = positions[j+1];
+				                positions[j+1] = temp;
+				
+				                rank = ranks[j];
+				                ranks[j] = ranks[j+1];
+				                ranks[j+1] = rank;
+				            }
+				        }
+				    }
+					printf("\nRANK akhir :\n");
+				    for (r = TPlayer.Neff - 1; r >=0;r--){
+				    	printf("%d. %s posisi : %d\n", v,TPlayer.TI[ranks[r]-1].Nama,(TPlayer.TI[ranks[r]-1].CPosition )+1);
+				    	v++;
+					}
 					exit(1);
 				}
 				if(strcmp(command,"UNDO")== 0){
@@ -139,7 +165,3 @@ int main()
 		ronde++;
 	}
 };
-
-
-
-
