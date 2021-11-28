@@ -72,7 +72,7 @@ void Move(Player *P, int hasil){
 			while (jwb != 1 && jwb != 2){
 				puts("Pilihan salah masukkan lagi");
 				printf("Masukkan pilihan : ");
-    			scanf("%d",jwb);
+    			scanf("%d",&jwb);
 			};
 			
 			if(jwb == 1){
