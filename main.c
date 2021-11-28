@@ -99,14 +99,17 @@ int main()
                     printf("\n");
                     char u[3];
                     do{
-                    	PopStack(&GameHist, &TPlayer);
                     	if (IsEmptyStack(GameHist)) {
                     		int j;
                     		for (j=0;j<TPlayer.Neff;j++) {
                     			ResetPlayer(&(TPlayer.TI[j]));
 							}
 							PushStack(&GameHist,TPlayer);
+						} else {
+							PopStack(&GameHist, &TPlayer);
 						}
+                    	
+                    	
                     	printf("UNDO berhasil dilakukan\n");
                     	ronde -= 1;
 						PrintMap(TPlayer,Map);
